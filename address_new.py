@@ -144,7 +144,7 @@ if __name__ == '__main__':
     ## 1.连接mysql数据库
     cursor, db = ConnectDB()
     ## 2. 插入省、市，区表数据
-    #InsertPCD(db)
+    InsertPCD(db)
     ## 3. 新增街道数据
     offset = int(input("从第几页开始？offset="))
     limit = int(input("每页多少条数据？, 默认每页1000条。limit="))
