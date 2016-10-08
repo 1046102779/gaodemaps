@@ -1,0 +1,84 @@
+": "1",
+  "info": "OK",
+  "infocode": "10000",
+  "count": "1",
+  "suggestion": {
+    "keywords": [],
+    "cities": []
+  },
+  "districts": [
+    {
+      "citycode": "0755",
+      "adcode": "440305",
+      "name": "南山区",
+      "center": "113.92943,22.531221",
+      "level": "district",
+      "districts": [
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "桃源街道",
+          "center": "113.964870,22.589137",
+          "level": "street",
+          "districts": []
+        },
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "粤海街道",
+          "center": "113.927925,22.513622",
+          "level": "street",
+          "districts": []
+        },
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "沙河街道",
+          "center": "113.979437,22.536523",
+          "level": "street",
+          "districts": []
+        },
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "南山街道",
+          "center": "113.921050,22.525083",
+          "level": "street",
+          "districts": []
+        },
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "蛇口街道",
+          "center": "113.927198,22.488096",
+          "level": "street",
+          "districts": []
+        },
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "南头街道",
+          "center": "113.918505,22.536311",
+          "level": "street",
+          "districts": []
+        },
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "招商街道",
+          "center": "113.932030,22.497755",
+          "level": "street",
+          "districts": []
+        },
+        {
+          "citycode": "0755",
+          "adcode": "440305",
+          "name": "西丽街道",
+          "center": "113.952518,22.579947",
+          "level": "street",
+          "districts": []
+        }
+      ]
+    }
+  ]
+}

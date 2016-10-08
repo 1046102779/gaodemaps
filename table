@@ -1,0 +1,49 @@
+REATE TABLE  IF NOT EXISTS provinces (
+province_id bigint(20) auto_increment comment '自增ID',
+name varchar(100)  comment '省名称',
+citycode varchar(100) comment '城市编码,为电话号码前缀，如：深圳 0755-',
+adcode varchar(100) comment '区域编码',
+center_longtitude float(10, 7) comment '中心点经度',
+center_latitude float(10, 7) comment '中心点纬度',
+weight_value  smallint(4) default 0 comment '权重值，用于排序',
+PRIMARY KEY(province_id)
+)engine=Innodb
+### 创建市级表
+CREATE TABLE IF NOT EXISTS cities (
+city_id bigint(20) auto_increment comment '自增城市ID',
+name varchar(100) comment '市名称',
+adcode varchar(20) comment '区域编码',
+citycode varchar(10) comment '城市编码',
+province_id bigint(20) comment '所属省份',
+center_longtitude float(10, 7) comment '经度',
+center_latitude float(10, 7) comment '纬度',
+weight_value  smallint(4) default 0 comment '权重值，用于排序',
+PRIMARY KEY(city_id)
+)engine=Innodb
+### 创建区/县表
+CREATE TABLE IF NOT EXISTS districts (
+district_id bigint(20) auto_increment comment '自增区/县ID',
+name varchar(100) comment '区/县名称',
+adcode varchar(20) comment '区域编码',
+citycode varchar(10) comment '城市编码',
+province_id bigint(20) comment '所属省份ID',
+city_id bigint(20) comment '所属城市ID',
+center_longtitude float(10, 7) comment '中心点经度',
+center_latitude float(10, 7) comment '中心点纬度',
+weight_value  smallint(4) default 0 comment '权重值，用于排序',
+PRIMARY KEY(district_id),
+)
+### 创建街道表
+CREATE TABLE IF NOT EXISTS streets (
+street_id bigint(20) auto_increment  comment '自增街道ID',
+name varchar(100) comment '市名称',
+adcode varchar(20) comment '区域编码',
+citycode varchar(10) comment '城市编码',
+province_id bigint(20) comment '所属省份ID',
+city_id bigint(20) comment '所属城市ID',
+district_id bigint(20) comment '所属区/县ID',
+center_longtitude float(10, 7) comment '中心点经度',
+center_latitude float(10, 7) comment '中心点纬度',
+weight_value  smallint(4) default 0 comment '权重值，用于排序',
+PRIMARY KEY(street_id)
+)
