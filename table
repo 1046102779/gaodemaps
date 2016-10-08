@@ -1,4 +1,5 @@
-REATE TABLE  IF NOT EXISTS provinces (
+### 创建省表
+CREATE TABLE  IF NOT EXISTS provinces (
 province_id bigint(20) auto_increment comment '自增ID',
 name varchar(100)  comment '省名称',
 citycode varchar(100) comment '城市编码,为电话号码前缀，如：深圳 0755-',
