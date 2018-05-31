@@ -8,7 +8,7 @@ center_longtitude float(10, 7) comment '中心点经度',
 center_latitude float(10, 7) comment '中心点纬度',
 weight_value  smallint(4) default 0 comment '权重值，用于排序',
 PRIMARY KEY(province_id)
-)engine=Innodb
+)ENGINE=Innodb DEFAULT CHARSET=utf8mb4 COMMENT="省份表";
 ### 创建市级表
 CREATE TABLE IF NOT EXISTS cities (
 city_id bigint(20) auto_increment comment '自增城市ID',
@@ -20,7 +20,7 @@ center_longtitude float(10, 7) comment '经度',
 center_latitude float(10, 7) comment '纬度',
 weight_value  smallint(4) default 0 comment '权重值，用于排序',
 PRIMARY KEY(city_id)
-)engine=Innodb
+)ENGINE=Innodb DEFAULT CHARSET=utf8mb4 COMMENT="市级表";
 ### 创建区/县表
 CREATE TABLE IF NOT EXISTS districts (
 district_id bigint(20) auto_increment comment '自增区/县ID',
@@ -32,8 +32,8 @@ city_id bigint(20) comment '所属城市ID',
 center_longtitude float(10, 7) comment '中心点经度',
 center_latitude float(10, 7) comment '中心点纬度',
 weight_value  smallint(4) default 0 comment '权重值，用于排序',
-PRIMARY KEY(district_id),
-)
+PRIMARY KEY(district_id)
+)ENGINE=Innodb DEFAULT CHARSET=utf8mb4 COMMENT="区/县表";
 ### 创建街道表
 CREATE TABLE IF NOT EXISTS streets (
 street_id bigint(20) auto_increment  comment '自增街道ID',
@@ -47,4 +47,4 @@ center_longtitude float(10, 7) comment '中心点经度',
 center_latitude float(10, 7) comment '中心点纬度',
 weight_value  smallint(4) default 0 comment '权重值，用于排序',
 PRIMARY KEY(street_id)
-)
+)ENGINE=Innodb DEFAULT CHARSET=utf8mb4 COMMENT="街道表";
