@@ -26,10 +26,16 @@ gaode_conn = httplib.HTTPConnection("restapi.amap.com")
 # 获取经纬度
 def getLocation(location):
     data = location.split(",")
-    return float(data[0]), float(data[1])
+    try:
+        a = float(data[0])
+        b = float(data[1])
+    except:
+        a = 0.0
+        b = 0.0
+    return a, b
 
 def ConnectDB():
-    db = MySQLdb.connect(host="127.0.0.1", port=3306, user="root", passwd="g934#y64!km98@545", db="syt_address", charset="utf8")
+    db = MySQLdb.connect(host="127.0.0.1", port=3306, user="user", passwd="password", db="addresses", charset="utf8")
     cursor = db.cursor()
     return cursor, db
 
@@ -65,8 +71,10 @@ def InsertCities(jsonresp, db):
             citycode = cityInfo["citycode"]
             adcode = cityInfo["adcode"]
             longtitude, latitude = getLocation(cityInfo["center"])
-            print name
+            print name.encode('utf-8')
             query = "INSERT INTO cities(name, citycode, adcode, center_longtitude, center_latitude, weight_value, province_id) VALUES(%s, %s, %s, %s, %s, 0, %s)"
+            if type(citycode)==list:
+                citycode = ""
             args = (name, citycode, adcode, longtitude, latitude, province_id)
             cursor.execute(query, args)
         db.commit()
@@ -92,6 +100,8 @@ def InsertDistricts(jsonresp, db):
                 name = districtsInfos[three_index]["name"]
                 longtitude, latitude = getLocation(districtsInfos[three_index]["center"])
                 query = "INSERT INTO districts(name, adcode, citycode, province_id, city_id, center_longtitude, center_latitude, weight_value) VALUES(%s, %s, %s, %s, %s, %s, %s, 0)"
+                if type(citycode) == list:
+                    citycode=""
                 args = (name, adcode, citycode, province_id, city_id, longtitude, latitude)
                 cursor.execute(query, args)
             db.commit()
